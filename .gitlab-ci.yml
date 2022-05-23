@@ -1,0 +1,13 @@
+stages:
+  - build
+
+build-job:
+  stage: build
+  image:
+    name: debian:latest
+  script:
+    - echo $CI_PROJECT_ID
+    - echo $CI_REPOSITORY_URL
+    - sleep 30
+    - apt-get update && apt-get install -y wget curl vim
+    - echo "GitLab-CI example" >> note.txt
